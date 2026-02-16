@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NicePage: Running Festival Unesa</title>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/framework.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+        /* Modal overlay */
+        #eventRegistrationModal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Modal content box */
+        #eventRegistrationModal .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 30px 40px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            font-family: Arial, sans-serif;
+        }
+
+        /* Close button style */
+        #eventRegistrationModal .close-btn {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            color: #900;
+            border: none;
+            background: none;
+            cursor: pointer;
+            margin: -15px -15px 15px 0;
+        }
+
+        #eventRegistrationModal .close-btn:hover {
+            color: #f00;
+        }
+
+        /* Form styles */
+        #eventRegistrationModal form label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #333;
+        }
+
+        #eventRegistrationModal form input[type="text"],
+        #eventRegistrationModal form input[type="email"],
+        #eventRegistrationModal form input[type="tel"],
+        #eventRegistrationModal form select {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 18px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        #eventRegistrationModal form button[type="submit"] {
+            width: 100%;
+            background-color: #d90000;
+            color: #fff;
+            border: none;
+            padding: 13px 0;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #eventRegistrationModal form button[type="submit"]:hover {
+            background-color: #b30000;
+        }
+    </style>
+<header class="btw-flex pt-15 pb-15 bg-white pl-20 pr-20 p-fixed">
+  <!-- Logo + Tulisan -->
+  <div class="Logo" style="display: flex; align-items: center; gap: 10px;">
+    <img
+      src="images/LOGO UNESA.png"
+      alt="Logo UNESA"
+      style="height: 40px; width: auto;"
+    />
+    <a
+      href="#"
+      class="fs-30 bolder upper d-block red-c letter-s2"
+      style="text-decoration: none;"
+    >
+      Unesa
+    </a>
+  </div>
+        <nav class="">
+            <ul class="d-flex gap-30">
+                <li><a class="fs-16 bold trans capitalize red-c" href="#home">Home</a></li>
+                <li><a class="fs-16 bold trans capitalize grey-c" href="#programlatihan">Program Latihan</a></li>
+                <li><a class="fs-16 bold trans capitalize grey-c" href="#jadwal">Jadwal</a></li>
+                <li><a class="fs-16 bold trans capitalize grey-c" href="#galeri">Galeri</a></li>
+                <li><a class="fs-16 bold trans capitalize grey-c" href="#kontak">Kontak</a></li>
+            </ul>
+            <div class="close p-absolute pointer">
+                <i class="fa-solid fa-times fs-30"></i>
+            </div>
+        </nav>
+        <div class="open pointer">
+            <i class="fa-solid fa-bars fs-30"></i>
+        </div>
+    </header>
+    <div class="landing  mt-74 bg-cover no-repeat p-relative" id="home">
+        <div class="container d-flex wrap-mobile gap-30">
+            <div class="info full-mobile p-relative">
+                <h1
+                    class="fs-60 normal text-c-mobile auto-mobile capitalize letter-s2 white-c mb-30"
+                >
+                    Come Run With Us
+                </h1>
+                <p class="fs-16 white-c text-c-mobile auto-mobile letter-s1 mb-30">
+                    Running Fest Unesa adalah komunitas lari mahasiswa Universitas Negeri
+                    Surabaya yang menjadi wadah bagi para pecinta olahraga lari untuk
+                    berkumpul, berlatih, dan berbagi semangat hidup sehat. Meskipun
+                    bernama Running Fest, komunitas ini bukan ajang lomba tahunan,
+                    melainkan platform permanen yang dibentuk untuk menumbuhkan
+                    kebersamaan, sportivitas, dan gaya hidup aktif di lingkungan kampus.
+                    Melalui website ini, Running Fest Unesa menghadirkan berbagai
+                    informasi seputar kegiatan latihan rutin, event kampus.
+                </p>
+                <a
+                    href=""
+                    class="fs-18 auto-mobile upper text-c letter-s2 white-c bg-red border-red btn-shape d-block w-fit trans"
+                >
+                    start now
+                </a>
+            </div>
+            <div class="image full-mobile p-relative">
+                <img src="./images/athlete.png" alt="" class="d-block auto full-max" />
+            </div>
+        </div>
+    </div>
+    <div class="attributes bg-white" id="programlatihan">
+        <div class="container">
+            <h2 class="fs-50 default-c capitalize letter-s1 fw-300 mb-30 text-c-mobile">
+                PROGRAM RENCANA PELATIHAN EVENT LARI
+            </h2>
+            <p class="fs-15 default-c letter-s1 line17 auto-mobile text-c-mobile mb-30">
+                Berikut merupakan program latihan untuk event running di beberapa kategori:
+            </p>
+            <div class="boxes grid-250 gap-30">
+                <div class="box">
+                    <div class="bar bg-red mb-10 c-586"></div>
+                    <h3 class="fs-25 default-c upper letter-s1 mb-30 c-586">
+                        Beginner 5K Plan
+                    </h3>
+                    <p class="fs-16 italic letter-s1 line17 color-80 c-586">
+                        <strong>Program latihan selama 2 bulan:</strong>
+                    </p>
+                    <ol class="fs-16 italic letter-s1 line17 color-80 c-586">
+                        <li>Senin: Istirahat atau Lari/Jalan</li>
+                        <li>Selasa: Pemanasan 10 menit, Lari 2,4 km, Pendinginan 7 menit</li>
+                        <li>Rabu: Istirahat atau Lari/Jalan</li>
+                        <li>Kamis: Pemanasan 10 menit, Lari 2,4 km, Pendinginan 7 menit</li>
+                        <li>Jum'at: Istirahat</li>
+                        <li>Sabtu: Pemanasan 10 menit, Lari 2,4 km, Pendinginan 7 menit</li>
+                        <li>Minggu: Jalan kaki 30 menit</li>
+                        <br />
+                    </ol>
+                </div>
+
+                <div class="box">
+                    <div class="bar bg-red mb-10 c-586"></div>
+                    <h3 class="fs-25 default-c upper letter-s1 mb-30 c-586">
+                        Intermediate 10K Plan
+                    </h3>
+                    <p class="fs-16 italic letter-s1 line17 color-80 c-586">
+                        <strong>Program latihan selama 2 bulan:</strong>
+                    </p>
+                    <ol class="fs-16 italic letter-s1 line17 color-80 c-586">
+                        <li>Senin: Pemanasan 20 menit, Lari 4,8 km, Pendinginan 12 menit</li>
+                        <li>Selasa: Istirahat atau Lari/Jalan</li>
+                        <li>Rabu: Lari tempo 35 menit</li>
+                        <li>Kamis: Pemanasan 20 menit, Lari 4,8 km, Pendinginan 12 menit</li>
+                        <li>Jum'at: Istirahat</li>
+                        <li>Sabtu: Pemanasan 25 menit, Lari 6 km, Pendinginan 15 menit</li>
+                        <li>Minggu: Istirahat</li>
+                        <br />
+                    </ol>
+                </div>
+                <div class="box">
+                    <div class="bar bg-red mb-10 c-586"></div>
+                    <h3 class="fs-25 default-c upper letter-s1 mb-30 c-586">
+                        Endurance Challenge
+                    </h3>
+                    <p class="fs-16 italic letter-s1 line17 color-80 c-586">
+                        <strong>Program ketahanan untuk challenge selama 2 bulan:</strong>
+                    </p>
+                    <ol class="fs-16 italic letter-s1 line17 color-80 c-586">
+                        <li>Senin: Istirahat</li>
+                        <li>Selasa: Pemanasan 20 menit, Lari 4 km, Pendinginan 12 menit</li>
+                        <li>Rabu: Pemanasan 20 menit, Lari 3 km, Pendinginan 12 menit</li>
+                        <li>Kamis: Istirahat</li>
+                        <li>Jum'at: Istirahat</li>
+                        <li>Sabtu: Pemanasan 25 menit, Lari 8 km, Pendinginan 15 menit</li>
+                        <li>Minggu: Istirahat</li>
+                        <br />
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="activities" id="galeri">
+        <div class="container">
+            <div class="section-title text-c white-c pt-50">
+        <h2 class="fs-40 uppercase letter-s2 mb-30">GALERI EVENT LARI UNESA</h2>
+            <div class="boxes pt-250 pb-250 grid-250 gap-30">
+    <div class="box">
+    <img src="images/FEST1.jpg"
+         alt="Event lari 5K UNESA"
+         class="d-block auto w-full mb-20" />
+    <p class="fs-16 line17 white-c letter-s1 text-c">
+        Event lari 5K UNESA
+    </p>
+</div>
+
+<div class="box">
+    <img src="images/FEST2.jpg"
+         alt="Event lari 10K UNESA"
+         class="d-block auto w-full mb-20" />
+    <p class="fs-16 line17 white-c letter-s1 text-c">
+        Event lari 10K UNESA
+    </p>
+</div>
+
+<div class="box">
+    <img src="images/FEST3.jpg"
+         alt="Event lari 5K UNESA"
+         class="d-block auto w-full mb-20" />
+    <p class="fs-16 line17 white-c letter-s1 text-c">
+        Event lari 5K UNESA
+    </p>
+</div>
+</div>
+
+            </div>
+        </div>
+    </div>
+    <div class="inspiration">
+        <div class="container">
+            
+            <div class="boxes grid-300 gap-20">
+                
+                <div class="box bg-white">
+    <img src="images/FEST4.jpg" 
+         alt="" 
+         class="d-block auto w-full mb-20" />
+    <h3 class="pl-20 pr-20 pb-30 fs-15 letter-s1 default-c line17 text-c">
+        Event lari 5K UNESA
+    </h3>
+</div>
+
+<div class="box bg-white">
+    <img src="images/FEST5.jpg" 
+         alt="" 
+         class="d-block auto w-full mb-20" />
+    <h3 class="pl-20 pr-20 pb-30 fs-15 letter-s1 default-c line17 text-c">
+        Event lari 5K UNESA
+    </h3>
+</div>
+
+<div class="box bg-white">
+    <img src="images/FEST6.jpg" 
+         alt="" 
+         class="d-block auto w-full mb-20" />
+    <h3 class="pl-20 pr-20 pb-30 fs-15 letter-s1 default-c line17 text-c">
+        Event lari 10K UNESA
+    </h3>
+</div> 
+            </div>
+        </div>
+    </div>
+    <div class="marathon bg-red d-flex align-c wrap-mobile">
+        <div class="image full-mobile">
+            <img
+    class="d-block w-full h-full"
+    src="images/running fest 1.jpg"
+    alt=""
+/>
+        </div>
+        <div class="container full-mobile" id="jadwal">
+            <div class="info">
+                <h2
+                    class="fs-50 fw-300 capitalize letter-s1 white-c mb-30 text-c-mobile"
+                >
+                    UNESA RUN FEST 5K 2025
+                </h2>
+                <p
+                    class="fs-16 line17 letter-s1 white-c mb-30 fw-600 text-c-mobile"
+                >
+                    Bersiaplah mengikuti UNESA RUN FEST 5K – Glow in The Dark, ajang
+                    lari seru yang memadukan olahraga, musik, dan cahaya penuh warna!
+                    Kegiatan ini terbuka untuk seluruh masyarakat dan mahasiswa,
+                    menghadirkan pengalaman berlari di sore hingga malam hari dengan
+                    nuansa meriah dan energik. Selain berlari sejauh 5 kilometer,
+                    peserta juga bisa menikmati hiburan menarik serta berkesempatan
+                    memenangkan doorprize spektakuler!
+                </p>
+                <p class="fs-16 line17 letter-s1 white-c mb-30 text-c-mobile">
+                    Temukan semangatmu, raih garis finis, dan jadilah bagian dari
+                    keseruan UNESA RUN FEST 2025!
+                </p>
+
+                <!-- Tambahkan id untuk tombol ini -->
+                <a
+                    href="#"
+                    id="openRegistrationBtn"
+                    class="d-block w-fit auto-mobile bg-white btn-shape trans red-c upper fs-18 letter-s2 border-w"
+                    >Daftar
+                    </a>
+
+                <div class="event-info" style="margin-top: 40px;">
+                    <div class="event-info" style="margin-top: 20px; color: #fff; font-weight: 600;">
+
+                        <i class="fas fa-calendar-alt"></i>
+                        <span class="event-date"
+                            >23 Agustus 2025 | 15.00 – 22.00 WIB </span
+                        >
+                    </div>
+                    <div class="event-info" style="margin-top: 20px; color: #fff; font-weight: 600;">
+
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="event-location"
+                            >Lap. Rektorat, UNESA, Lidah Wetan Surabaya</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Modal Syarat & Ketentuan (Lebar) -->
+<div
+  id="eventRegistrationModal"
+  style="
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    overflow-y: auto;
+  "
+>
+  <div
+    style="
+      background: #ffffff;
+      padding: 50px 60px;
+      border-radius: 12px;
+      width: 85%;
+      max-width: 1200px;
+      margin: 50px auto;
+      position: relative;
+      box-sizing: border-box;
+      color: #000;
+      font-size: 16px;
+      line-height: 1.7;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      max-height: 90vh;
+      overflow-y: auto;
+    "
+    class="modal-content"
+  >
+    <!-- Tombol Tutup -->
+    <button
+      id="closeRegistrationModal"
+      style="
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 28px;
+        font-weight: bold;
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: #000;
+      "
+    >
+      &times;
+    </button>
+
+    <!-- Judul -->
+    <h2
+      style="
+        text-align: center;
+        margin-bottom: 30px;
+        color: #d90000;
+        font-weight: 700;
+      "
+    >
+      🏃‍♀️ Syarat & Ketentuan – UNESA RUN FEST 5K 2025
+    </h2>
+
+    <!-- Isi Syarat & Ketentuan -->
+    <div style="max-width: 1000px; margin: auto; color: #000;">
+      <p><strong>1. Tanggal & Lokasi</strong></p>
+      <ul>
+        <li>- Kegiatan UNESA Running Fest dilaksanakan sesuai jadwal yang telah ditetapkan oleh panitia.</li>
+        <li>- Lokasi pelaksanaan berada di lingkungan Universitas Negeri Surabaya (UNESA) atau rute yang telah disetujui oleh pihak kampus dan instansi terkait.</li>
+        <li>- Perubahan jadwal atau lokasi akan diumumkan melalui media resmi panitia.</li>
+      </ul>
+
+      <p><strong>2. Pendaftaran</strong></p>
+      <ul>
+        <li>- Pendaftaran dilakukan melalui website atau formulir resmi panitia.</li>
+        <li>- Peserta wajib mengisi data diri dengan benar dan sesuai identitas resmi.</li>
+        <li>- Biaya pendaftaran tidak dapat dikembalikan, kecuali kegiatan dibatalkan oleh panitia.</li>
+        <li>- Promo atau kuota khusus berlaku sesuai ketentuan panitia.</li>
+      </ul>
+
+      <p><strong>3. Peserta</strong></p>
+      <ul>
+        <li>- Terbuka untuk mahasiswa aktif UNESA, alumni, dan masyarakat umum.</li>
+        <li>- Peserta di bawah usia 18 tahun wajib mendapat izin tertulis dari orang tua/wali.</li>
+      </ul>
+
+      <p><strong>4. Fasilitas Peserta</strong></p>
+      <ul>
+        <li>- Jersey resmi UNESA Running Fest</li>
+        <li>- Nomor dada (BIB Number)</li>
+        <li>- Medali finisher</li>
+        <li>- Snack / refreshment</li>
+        <li>- E-sertifikat keikutsertaan</li>
+        <li>- Asuransi kegiatan (jika disediakan panitia)</li>
+      </ul>
+
+      <p><strong>5. Aturan Peserta</strong></p>
+      <ul>
+        <li>- Peserta wajib hadir tepat waktu dan mengikuti instruksi panitia.</li>
+        <li>- Dilarang membawa barang berbahaya, alkohol, atau zat terlarang.</li>
+        <li>- Dilarang memotong jalur atau melakukan kecurangan.</li>
+        <li>- Peserta wajib menjaga kebersihan dan ketertiban.</li>
+      </ul>
+
+      <p><strong>6. Keamanan & Kesehatan</strong></p>
+      <ul>
+        <li>- Peserta wajib dalam kondisi sehat jasmani dan rohani.</li>
+        <li>- Panitia tidak bertanggung jawab atas cedera atau kehilangan barang pribadi.</li>
+        <li>- Tim medis disediakan selama kegiatan berlangsung.</li>
+      </ul>
+
+      <p><strong>7. Kebijakan Refund & Alih Nama</strong></p>
+      <ul>
+        <li>- Biaya pendaftaran tidak dapat dikembalikan kecuali acara dibatalkan.</li>
+        <li>- Alih nama peserta hanya dapat dilakukan sesuai waktu yang ditentukan panitia.</li>
+      </ul>
+
+      <p><strong>8. Dokumentasi & Publikasi</strong></p>
+      <ul>
+        <li>- Panitia berhak mengambil foto dan video selama acara.</li>
+        <li>- Materi dokumentasi dapat digunakan untuk publikasi tanpa kompensasi tambahan.</li>
+      </ul>
+
+      <p><strong>9. Perubahan Ketentuan</strong></p>
+      <ul>
+        <li>- Panitia berhak mengubah atau menyesuaikan syarat & ketentuan ini kapan saja.</li>
+      </ul>
+
+      <p><strong>10. Persetujuan</strong></p>
+      <ul>
+        <li>- Dengan mendaftar dan mengikuti kegiatan, peserta dianggap telah membaca dan menyetujui seluruh ketentuan ini.</li>
+      </ul>
+
+      <!-- Paragraf & Link Google Form -->
+      <div style="margin-top: 50px; text-align: center;">
+        <p style="font-size: 17px; color: #000000; font-weight: 600;">
+          Untuk mengikuti <strong>UNESA 5K RUN 2025</strong>, silakan melakukan pendaftaran melalui tautan Google Form berikut.  
+          Pastikan data yang kamu isi sudah benar sebelum mengirimkan formulir.
+        </p>
+
+        <a
+          href="https://forms.gle/cpCfNkxMG6cXajjM9"
+          target="_blank"
+          style="
+            display: inline-block;
+            margin-top: 15px;
+            padding: 14px 30px;
+            background-color: #d90000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 1px;
+            transition: background 0.3s ease;
+          "
+          onmouseover="this.style.backgroundColor='#a80000'"
+          onmouseout="this.style.backgroundColor='#d90000'"
+        >
+          📝 Buka Formulir Pendaftaran
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="start-running main-bg">
+  <div class="container grid-300 gap-30">
+    <div class="box">
+      <h3 class="fs-50 default-c capitalize letter-s2 fw-300 mb-30">
+        UNESA 5K RUN 2025
+      </h3>
+
+      <!-- Tombol Daftar dipindah ke bawah judul -->
+      <a
+        href="#"
+        id="openRegistrationBtn2"
+        class="d-block w-fit auto-mobile btn-shape upper fs-18 letter-s2 border-w"
+        style="
+          background-color: #ff3542;  
+          color: #ffffff;            
+          font-weight: 600;
+          padding: 12px 28px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          margin-top: 10px;
+          border-radius: 8px;
+          transition: background 0.3s ease;
+        "
+        onmouseover="this.style.backgroundColor='#e14f92'"
+        onmouseout="this.style.backgroundColor='#ff5ca4'"
+      >
+        Daftar
+      </a>
+    </div>
+
+    <div class="box">
+      <p class="fs-16 letter-s1 line17 default-c mb-30">
+        Bersiaplah mengikuti UNESA 5K RUN – ajang
+        lari seru yang memadukan olahraga, musik, dan cahaya penuh warna!
+        Kegiatan ini terbuka untuk seluruh masyarakat dan mahasiswa,
+        menghadirkan pengalaman berlari di sore hingga malam hari dengan
+        nuansa meriah dan energik. Selain berlari sejauh 5 kilometer,
+        peserta juga bisa menikmati hiburan menarik serta berkesempatan
+        memenangkan doorprize spektakuler!
+      </p>
+    </div>
+
+    <div class="box">
+      <div class="image full-mobile">
+        <img
+  class="d-block w-full h-full"
+  src="images/running fest 2.jpg"
+  alt=""
+/>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!-- Modal Syarat & Ketentuan (Lebar) -->
+<div
+  id="eventRegistrationModal"
+  style="
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    overflow-y: auto;
+  "
+>
+  <div
+    style="
+      background: #ffffff;
+      padding: 50px 60px;
+      border-radius: 12px;
+      width: 85%;
+      max-width: 1200px;
+      margin: 50px auto;
+      position: relative;
+      box-sizing: border-box;
+      color: #000;
+      font-size: 16px;
+      line-height: 1.7;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      max-height: 90vh;
+      overflow-y: auto;
+    "
+    class="modal-content"
+  >
+    <!-- Tombol Tutup -->
+    <button
+      id="closeRegistrationModal"
+      style="
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 28px;
+        font-weight: bold;
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: #000;
+      "
+    >
+      &times;
+    </button>
+
+    <!-- Judul -->
+    <h2
+      style="
+        text-align: center;
+        margin-bottom: 30px;
+        color: #d90000;
+        font-weight: 700;
+      "
+    >
+      🏃‍♀️ Syarat & Ketentuan – UNESA 5K RUN 2025
+    </h2>
+
+    <!-- Isi Syarat & Ketentuan -->
+    <div style="max-width: 1000px; margin: auto; color: #000;">
+      <p><strong>1. Tanggal & Lokasi</strong></p>
+      <ul>
+        <li>- Kegiatan UNESA Running Fest dilaksanakan sesuai jadwal yang telah ditetapkan oleh panitia.</li>
+        <li>- Lokasi pelaksanaan berada di lingkungan Universitas Negeri Surabaya (UNESA) atau rute yang telah disetujui oleh pihak kampus dan instansi terkait.</li>
+        <li>- Perubahan jadwal atau lokasi akan diumumkan melalui media resmi panitia.</li>
+      </ul>
+
+      <p><strong>2. Pendaftaran</strong></p>
+      <ul>
+        <li>- Pendaftaran dilakukan melalui website atau formulir resmi panitia.</li>
+        <li>- Peserta wajib mengisi data diri dengan benar dan sesuai identitas resmi.</li>
+        <li>- Biaya pendaftaran tidak dapat dikembalikan, kecuali kegiatan dibatalkan oleh panitia.</li>
+        <li>- Promo atau kuota khusus berlaku sesuai ketentuan panitia.</li>
+      </ul>
+
+      <p><strong>3. Peserta</strong></p>
+      <ul>
+        <li>- Terbuka untuk mahasiswa aktif UNESA, alumni, dan masyarakat umum.</li>
+        <li>- Peserta di bawah usia 18 tahun wajib mendapat izin tertulis dari orang tua/wali.</li>
+      </ul>
+
+      <p><strong>4. Fasilitas Peserta</strong></p>
+      <ul>
+        <li>- Jersey resmi UNESA Running Fest</li>
+        <li>- Nomor dada (BIB Number)</li>
+        <li>- Medali finisher</li>
+        <li>- Snack / refreshment</li>
+        <li>- E-sertifikat keikutsertaan</li>
+        <li>- Asuransi kegiatan (jika disediakan panitia)</li>
+      </ul>
+
+      <p><strong>5. Aturan Peserta</strong></p>
+      <ul>
+        <li>- Peserta wajib hadir tepat waktu dan mengikuti instruksi panitia.</li>
+        <li>- Dilarang membawa barang berbahaya, alkohol, atau zat terlarang.</li>
+        <li>- Dilarang memotong jalur atau melakukan kecurangan.</li>
+        <li>- Peserta wajib menjaga kebersihan dan ketertiban.</li>
+      </ul>
+
+      <p><strong>6. Keamanan & Kesehatan</strong></p>
+      <ul>
+        <li>- Peserta wajib dalam kondisi sehat jasmani dan rohani.</li>
+        <li>- Panitia tidak bertanggung jawab atas cedera atau kehilangan barang pribadi.</li>
+        <li>- Tim medis disediakan selama kegiatan berlangsung.</li>
+      </ul>
+
+      <p><strong>7. Kebijakan Refund & Alih Nama</strong></p>
+      <ul>
+        <li>- Biaya pendaftaran tidak dapat dikembalikan kecuali acara dibatalkan.</li>
+        <li>- Alih nama peserta hanya dapat dilakukan sesuai waktu yang ditentukan panitia.</li>
+      </ul>
+
+      <p><strong>8. Dokumentasi & Publikasi</strong></p>
+      <ul>
+        <li>- Panitia berhak mengambil foto dan video selama acara.</li>
+        <li>- Materi dokumentasi dapat digunakan untuk publikasi tanpa kompensasi tambahan.</li>
+      </ul>
+
+      <p><strong>9. Perubahan Ketentuan</strong></p>
+      <ul>
+        <li>- Panitia berhak mengubah atau menyesuaikan syarat & ketentuan ini kapan saja.</li>
+      </ul>
+
+      <p><strong>10. Persetujuan</strong></p>
+      <ul>
+        <li>- Dengan mendaftar dan mengikuti kegiatan, peserta dianggap telah membaca dan menyetujui seluruh ketentuan ini.</li>
+      </ul>
+
+      <!-- Paragraf & Link Google Form -->
+      <div style="margin-top: 50px; text-align: center;">
+        <p style="font-size: 17px; color: #000000; font-weight: 600;">
+          Untuk mengikuti <strong>UNESA 5K RUN 2025</strong>, silakan melakukan pendaftaran melalui tautan Google Form berikut.  
+          Pastikan data yang kamu isi sudah benar sebelum mengirimkan formulir.
+        </p>
+
+        <a
+          href="https://forms.gle/cpCfNkxMG6cXajjM9"
+          target="_blank"
+          style="
+            display: inline-block;
+            margin-top: 15px;
+            padding: 14px 30px;
+            background-color: #d90000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 1px;
+            transition: background 0.3s ease;
+          "
+          onmouseover="this.style.backgroundColor='#a80000'"
+          onmouseout="this.style.backgroundColor='#d90000'"
+        >
+          📝 Buka Formulir Pendaftaran
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById("eventRegistrationModal");
+  const closeBtn = document.getElementById("closeRegistrationModal");
+
+  // Ambil semua tombol dengan ID openRegistrationBtn dan openRegistrationBtn2
+  const openButtons = [
+    document.getElementById("openRegistrationBtn"),
+    document.getElementById("openRegistrationBtn2"),
+  ];
+
+  // Loop semua tombol biar dua-duanya aktif
+  openButtons.forEach((btn) => {
+    if (btn) {
+      btn.onclick = function (e) {
+        e.preventDefault();
+        modal.style.display = "flex";
+        modal.style.alignItems = "center";
+        modal.style.justifyContent = "center";
+      };
+    }
+  });
+
+  // Tombol tutup modal
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  // Klik di luar modal = tutup modal
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+
+<!-- CSS Tombol Daftar -->
+<style>
+  .btn-daftar {
+    background-color: #ff3542;
+    color: #fff;
+    padding: 12px 36px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 2px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .btn-daftar:hover {
+    background-color: #ff3542;
+  }
+  #home, #programlatihan, #jadwal, #galeri, #kontak {
+    scroll-margin-top: 80px; /* biar nggak ketutupan header */
+  }
+
+  html {
+    scroll-behavior: smooth; /* scroll halus */
+  }
+</style>
+
+    <div class="quote">
+        <div class="container">
+            <i
+                class="fa-solid fa-quote-left fs-50 color-80 d-block w-fit auto mb-30"
+                style="color: #fff;"
+            ></i>
+            <p class="fs-20 letter-s1 line18 auto color-80 text-c"
+                style="color: #fff;"
+                >
+                Apabila terdapat kendala pada formulir pendaftaran, ataupun ingin menjadwalkan 
+                event anda pada website ini, dapat menghubingi nomor berikut: 08123456789 (Selo).
+            </p>
+        </div>
+    </div>
+    <footer class="footer-bg text-c p-40" id="kontak">
+        <!-- <div class="social p-40 c-flex gap-20">
+            <a href=""
+                ><i
+                    class="fa-brands fa-facebook-f fs-25 white-c trans"
+                ></i></a>
+            <a href="">
+                <i class="fa-brands fa-twitter fs-25 white-c trans"></i></a
+            >
+            <a href=""
+                ><i
+                    class="fa-brands fa-instagram fs-25 white-c trans"
+                ></i></a>
+            <a href=""
+                ><i
+                    class="fa-brands fa-google-plus-g fs-25 white-c trans"
+                ></i></a>
+        </div> -->
+        <p class="white-c fs-16 normal auto line16">
+            Website Kelompok 7
+            <a
+                href="https://www.instagram.com/unesarunfest2025/?igsh=MTc3bWh2bG1zNG4wNA%3D%3D#"
+                target="_blank"
+                class="grey-c mr-10 trans"
+                >runningfestunesa.com</a
+            >
+            Code By
+            <a
+                
+                >Kelompok 7</a
+            >
+        </p>
+    </footer>  
+</body>
+</html>
